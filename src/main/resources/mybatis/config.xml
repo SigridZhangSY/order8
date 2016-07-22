@@ -35,6 +35,5 @@
     <mappers>
         <mapper resource="mybatis/mappers/Records.xml"/>
         <mapper resource="mybatis/mappers/Columns.xml"/>
-        <mapper resource="mybatis/mappers/UserMapper.xml"/>
     </mappers>
 </configuration>

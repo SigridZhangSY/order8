@@ -40,7 +40,6 @@ public class ApiTestRunner extends InjectBasedRunner {
                 // field in table A has reference for table B, then A should be deleted first
                 // otherwise exception will occur and database will be broken,
                 // remember to clean database manually before running tests when exception happens
-                statement.executeUpdate("DELETE FROM users");
                 statement.close();
                 connection.commit();
             }
