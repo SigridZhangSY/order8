@@ -31,17 +31,22 @@ public class Product implements Record {
 
     @Override
     public Map<String, Object> toRefJson(Routes routes) {
-        return null;
+        return new HashMap<String, Object>(){{
+            put("id", String.valueOf(id));
+            put("uri", routes.productUri(Product.this));
+            put("name", name);
+            put("description", description);
+            put("price", price);
+        }};
     }
 
     @Override
     public Map<String, Object> toJson(Routes routes) {
         return new HashMap<String, Object>(){{
-            put("id", id);
             put("uri", routes.productUri(Product.this));
             put("name", name);
             put("description", description);
-            put("price", String.valueOf(price));
+            put("price", price);
         }};
     }
 }
