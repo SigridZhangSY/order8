@@ -7,7 +7,8 @@ var request = require('request');
 var chai = require('chai');
 var assert = chai.assert;
 var tv4 = require('tv4');
-var endpoint = "http://localhost:8888";
+// var endpoint = "http://localhost:8888";
+var endpoint = process.env.ENDPOINT;
 
 console.log(endpoint);
 
