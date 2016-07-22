@@ -9,5 +9,10 @@
         </constructor>
     </resultMap>
 
-
+    <resultMap id="product" type="com.thoughtworks.ketsu.domain.product.Product">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="price" property="price"/>
+    </resultMap>
 </mapper>

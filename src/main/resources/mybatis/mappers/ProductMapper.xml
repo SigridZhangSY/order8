@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.thoughtworks.ketsu.infrastructure.mybatis.mappers.ProductMapper">
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="info.id">
+        INSERT INTO PRODUCTS (name, description, price)
+        VALUES (#{info.name}, #{info.description}, #{info.price})
+    </insert>
+
+    <select id="findById" resultMap="records.product">
+        SELECT *
+        FROM PRODUCTS P
+        WHERE P.id = #{id}
+    </select>
+
+    <select id="getAll" resultMap="records.product">
+        SELECT *
+        FROM PRODUCTS P
+    </select>
+</mapper>
