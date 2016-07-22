@@ -40,7 +40,8 @@ public class Product implements Record {
             put("id", id);
             put("uri", routes.productUri(Product.this));
             put("name", name);
-            put("price", price);
+            put("description", description);
+            put("price", String.valueOf(price));
         }};
     }
 }

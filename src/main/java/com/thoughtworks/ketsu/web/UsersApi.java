@@ -35,8 +35,8 @@ public class UsersApi {
     }
 
 
-    @Path("{userId}")
-    public UserApi gatUserApi(@PathParam("userId") long id){
+    @Path("{id}")
+    public UserApi gatUserApi(@PathParam("id") long id){
         User user = userRepository.findById(id).orElseThrow(() -> new NotFoundException("Can not find user by Id"));
         return new UserApi(user);
     }
