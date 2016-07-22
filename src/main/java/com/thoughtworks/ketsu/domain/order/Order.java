@@ -1,7 +1,9 @@
 package com.thoughtworks.ketsu.domain.order;
 
 import com.thoughtworks.ketsu.domain.payment.Payment;
+import com.thoughtworks.ketsu.domain.product.Product;
 import com.thoughtworks.ketsu.infrastructure.mybatis.mappers.PaymentMapper;
+import com.thoughtworks.ketsu.infrastructure.mybatis.mappers.ProductMapper;
 import com.thoughtworks.ketsu.infrastructure.records.Record;
 import com.thoughtworks.ketsu.web.jersey.Routes;
 
@@ -20,6 +22,8 @@ public class Order implements Record{
 
     @Inject
     PaymentMapper paymentMapper;
+    @Inject
+    ProductMapper productMapper;
 
     public long getId() {
         return id;
@@ -76,7 +80,9 @@ public class Order implements Record{
             List<Map<String, Object>> orderItems = new ArrayList<Map<String, Object>>();
             for(int i = 0; i < items.size(); i++){
                 Map<String, Object> map = new HashMap<>();
-                map.put("product_id", items.get(i).getProductId());
+                map.put("product_id", String.valueOf(items.get(i).getProductId()));
+                Product product = productMapper.findById(items.get(i).getProductId());
+                map.put("uri", routes.productUri(product));
                 map.put("quantity", items.get(i).getQuantity());
                 map.put("amount", items.get(i).getAmount());
                 orderItems.add(map);

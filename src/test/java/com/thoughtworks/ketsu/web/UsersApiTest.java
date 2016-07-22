@@ -104,6 +104,9 @@ public class UsersApiTest extends ApiSupport{
         assertThat(get.getStatus(), is(200));
         final Map<String, Object> map = get.readEntity(Map.class);
         assertThat(map.get("uri"), is("/users/" + user.getId() + "/orders/" + order.getId()));
+        final List<Map<String, Object>> list = (List<Map<String, Object>>) map.get("order_items");
+        assertThat(list.get(0).get("uri"), is("/products/" + product.getId()));
+
     }
 
     @Test
