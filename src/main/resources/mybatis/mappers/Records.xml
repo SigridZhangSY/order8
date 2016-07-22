@@ -15,4 +15,29 @@
         <result column="description" property="description"/>
         <result column="price" property="price"/>
     </resultMap>
+
+    <resultMap id="user" type="com.thoughtworks.ketsu.domain.user.User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+    <resultMap id="order" type="com.thoughtworks.ketsu.domain.order.Order">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="name" property="name"/>
+        <result column="address" property="address"/>
+        <result column="phone" property="phone"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="time" property="time"/>
+        <collection property="items" ofType="com.thoughtworks.ketsu.domain.order.OrderItem">
+            <result column="product_id" property="productId"/>
+            <result column="quantity" property="quantity"/>
+            <result column="amount" property="amount"/>
+        </collection>
+    </resultMap>
+    <resultMap id="payment" type="com.thoughtworks.ketsu.domain.payment.Payment">
+        <id column="order_id" property="orderId"/>
+        <result column="pay_type" property="payType"/>
+        <result column="amount" property="amount"/>
+        <result column="time" property="time"/>
+    </resultMap>
 </mapper>
