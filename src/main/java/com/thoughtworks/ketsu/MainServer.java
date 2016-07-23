@@ -25,7 +25,7 @@ public class MainServer {
 
         HttpServer server = null;
         try {
-            server = createHttpServer(URI.create("http://localhost:8888"));
+            server = createHttpServer(URI.create("http://0.0.0.0:8088"));
             context.deploy(server);
         } catch (Exception e) {
             e.printStackTrace();
